@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CompanyMapper {
+
     public CompanyDTO toCompanyDTO(Company company) {
         CompanyDTO dto = new CompanyDTO();
         dto.setId(company.getId());
