@@ -21,4 +21,23 @@ public class CompanyRepository {
     public Company findCompanyById(Long id) {
         return sessionFactory.getCurrentSession().get(Company.class, id);
     }
+
+    @Transactional
+    public boolean update(Company company) {
+        if (company != null) {
+            sessionFactory.getCurrentSession().update(company);
+            return true;
+        }
+        return false;
+    }
+
+    @Transactional
+    public boolean delete(Long id) {
+        Company company = findCompanyById(id);
+        if (company != null) {
+            sessionFactory.getCurrentSession().delete(company);
+            return true;
+        }
+        return false;
+    }
 }

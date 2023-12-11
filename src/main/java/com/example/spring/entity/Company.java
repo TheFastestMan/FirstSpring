@@ -1,10 +1,9 @@
 package com.example.spring.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
+
 
 @Setter
 @Getter
@@ -17,4 +16,7 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @ManyToOne
+    private User user;
+
 }

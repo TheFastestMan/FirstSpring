@@ -1,6 +1,7 @@
 package com.example.spring.repository;
 
 
+import com.example.spring.entity.Company;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,4 +23,26 @@ public class UserRepository {
     public User findUserById(Long id) {
         return sessionFactory.getCurrentSession().get(User.class, id);
     }
+
+    @Transactional
+    public boolean update(User user) {
+        if (user != null) {
+            sessionFactory.getCurrentSession().update(user);
+            return true;
+        }
+        return false;
+    }
+
+    @Transactional
+    public boolean delete(Long id) {
+        User user = findUserById(id);
+        if (user != null) {
+            sessionFactory.getCurrentSession().delete(user);
+            return true;
+        }
+        return false;
+    }
+
+
 }
+

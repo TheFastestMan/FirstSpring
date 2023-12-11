@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Setter
 @Getter
@@ -16,5 +17,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    @OneToMany
+    private List<Company> owner;
 
 }
