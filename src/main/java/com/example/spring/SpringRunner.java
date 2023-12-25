@@ -24,7 +24,6 @@ public class SpringRunner {
             UserService userService = context.getBean(UserService.class);
             CompanyService companyService = context.getBean(CompanyService.class);
 
-
             UserDTO userDTO = new UserDTO();
             userDTO.setRole(Role.ADMIN);
             userDTO.setName("Name12");

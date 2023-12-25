@@ -24,14 +24,8 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
     @Autowired
-    private final ApplicationEventPublisher applicationEventPublisher;
+    private ApplicationEventPublisher applicationEventPublisher;
 
-    public UserService(UserRepository userRepository, UserMapper userMapper,
-                       ApplicationEventPublisher applicationEventPublisher) {
-        this.userRepository = userRepository;
-        this.userMapper = userMapper;
-        this.applicationEventPublisher = applicationEventPublisher;
-    }
 
     @Transactional
     public Long registerUser(UserDTO userDTO) {
